@@ -31,24 +31,34 @@ if "%x%"=="u" goto update
 
 
 :p
+cls
 echo What do u want to ping?
 echo.
-echo - Online Services [O]    [5 Services available]
+echo - Online Services [O]    [6 Services available]
+echo.
+echo TYPE IN OWN IP [i]
 echo.
 echo [MORE IS IN DEVELOPEMENT]
 
 set /p x=
 
 if "%x%"=="o" goto os
+if "%x%"=="i" goto ownip
 
 :os
 echo Witch online service do u want to  ping?
 echo.
 echo Facebook [F]
+echo.
 echo Yahoo    [Y]
+echo.
 echo Google   [G]
+echo.
 echo Apple    [A]
+echo.
 echo PAYPAL   [P]
+echo.
+echo YouTube  [YT]
 
 set /p x=
 
@@ -57,6 +67,7 @@ if "%x%"=="y" goto yahoo
 if "%x%"=="g" goto google
 if "%x%"=="a" goto apple
 if "%x%"=="p" goto paypal
+if "%x%"=="yt" goto youtube
 
 :facebook
 echo PLEASE CHOOSE A BITRATE:
@@ -302,6 +313,60 @@ pause
 ping www.paypal.com -t -l 1200
 pause
 
+:youtube
+echo PLEASE CHOOSE A BITRATE:
+echo 32kb  [32]    (MIN)
+echo 120kb [120]
+echo 240kb [240]
+echo 360kb [360]
+echo 512kb [512]
+echo 1000kb [1000]
+echo 1200kb [1200]    (MAX)
+
+set /p x=
+
+if "%x%"=="32" goto 32 yt
+if "%x%"=="120" goto 120 yt
+if "%x%"=="240" goto 240 yt
+if "%x%"=="512" goto 512 yt
+if "%x%"=="1000" goto 1000 yt 
+if "%x%"=="1200" goto 1200 yt
+
+:32 yt
+ping www.youtube.com -t 
+pause
+
+:120 yt
+ping www.youtube.com -t -l 120 
+pause
+
+:240 yt
+ping www.youtube.com -t -l 240 
+pause
+
+:512 yt 
+ping www.youtube.com -t -l 512
+pause
+
+:1000 yt
+ping www.youtube.com -t -l 1000
+pause
+
+:1200 yt 
+ping www.youtube.com -t -l 1200
+pause
+
+:ownip
+
+echo enter the IP u want to ping:
+ set /p i= 
+
+ping %i% -t -l 1200
+
+pause
+
+
+
 
 :c
 netstat -a
@@ -313,7 +378,7 @@ goto 1
 cls
 echo           INSTALLED:
 echo    -----------------------
-echo              0.2.1
+echo              0.3.2
 echo.
 echo      Info about the Dev:
 echo.
@@ -330,14 +395,16 @@ echo.
 echo Check network activity: Displays all connections and listening ports.
 echo.
 echo You Can interrupt the ping process by pressing cntrl+C
+echo [ENTER]
+pause >NUL
+cls
 goto 1
 
 :cl
 cls
-echo VERSION 0.2.1:
-echo.
-echo CHANGELOG ADDED
-echo UPDATE FUNCTION ADDED
+echo VERSION 0.3.2:
+echo - U CAN NOW TYPE IN THE IP U WANT TO PING MANUALLY!!!!  
+echo - BUG FIXES 
 echo.
 echo [ENTER]
 pause >NUL
