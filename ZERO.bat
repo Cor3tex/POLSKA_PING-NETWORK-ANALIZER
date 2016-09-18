@@ -9,15 +9,25 @@ echo.
 echo                WHAT DO U WANT TO DO?
 echo.
 echo - Start to Ping [P]
+echo.
 echo - Check network activity [C]
+echo.
 echo - Installed Version  [V]
+echo.
 echo - Help [H]
+echo.
+echo - Show Changelog [L]
+echo.
+echo -Check for UPDATES [U]
+
 set /p x=
 
 if "%x%"=="p" goto p
 if "%x%"=="c" goto c
 if "%x%"=="v" goto version
 if "%x%"=="h" goto h
+if "%x%"=="l" goto cl
+if "%x%"=="u" goto update
 
 
 :p
@@ -141,7 +151,7 @@ pause
 ping www.yahoo.com -t -l 1000
 pause
 
-1200 y
+:1200 y
 ping www.yahoo.com -t -l 1200
 pause
 
@@ -190,7 +200,7 @@ pause
 ping www.google.com -t -l 1000
 pause
 
-1200 g
+:1200 g
 ping www.google.com-t -l 1200
 pause
 
@@ -239,7 +249,7 @@ pause
 ping www.apple.com -t -l 1000
 pause
 
-1200 a
+:1200 a
 ping www.apple.com -t -l 1200
 pause
 
@@ -288,7 +298,7 @@ pause
 ping www.paypal.com -t -l 1000
 pause
 
-1200 p
+:1200 p
 ping www.paypal.com -t -l 1200
 pause
 
@@ -303,12 +313,14 @@ goto 1
 cls
 echo           INSTALLED:
 echo    -----------------------
-echo              0.2
+echo              0.2.1
 echo.
 echo      Info about the Dev:
 echo.
 echo      SCRYPT: COR3, B3TA
-echo
+echo [ENTER]
+pause >NUL
+cls
 goto 1
 
 :h
@@ -318,4 +330,25 @@ echo.
 echo Check network activity: Displays all connections and listening ports.
 echo.
 echo You Can interrupt the ping process by pressing cntrl+C
+goto 1
+
+:cl
+cls
+echo VERSION 0.2.1:
+echo.
+echo CHANGELOG ADDED
+echo UPDATE FUNCTION ADDED
+echo.
+echo [ENTER]
+pause >NUL
+cls
+goto 1
+
+:update
+cls
+Update.html
+echo CHECKING FOR UPDATES...
+echo [ENTER]
+pause >NUL
+cls
 goto 1
