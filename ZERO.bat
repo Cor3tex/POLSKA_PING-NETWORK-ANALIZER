@@ -2,9 +2,11 @@
 title ZERO: A PING AND NETWORK TOOL
 color 0A
 :1
-echo          ********************************
-echo          *      ZERO BY C0R3, BET4      *
-echo          ********************************
+echo !!!CHECK FOR UPDATES TO SEE IF U HAVE THE NEWEST VERSION INSTALLED!!!
+echo.
+echo          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo          @         ZERO BY C0R3         @
+echo          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo.
 echo                WHAT DO U WANT TO DO?
 echo.
@@ -14,11 +16,13 @@ echo - Check network activity [C]
 echo.
 echo - Installed Version  [V]
 echo.
-echo - Help [H]
-echo.
 echo - Show Changelog [L]
 echo.
 echo -Check for UPDATES [U]
+echo.
+echo -GO FULLSCREEN [F]
+echo.
+echo - Help [H]
 
 set /p x=
 
@@ -28,7 +32,7 @@ if "%x%"=="v" goto version
 if "%x%"=="h" goto h
 if "%x%"=="l" goto cl
 if "%x%"=="u" goto update
-
+if "%x%"=="f" goto fullscreen
 
 :p
 cls
@@ -378,11 +382,11 @@ goto 1
 cls
 echo           INSTALLED:
 echo    -----------------------
-echo              0.3.2
+echo              0.3.3
 echo.
 echo      Info about the Dev:
 echo.
-echo      SCRYPT: COR3, B3TA
+echo      SCRYPT: COR3
 echo [ENTER]
 pause >NUL
 cls
@@ -402,9 +406,9 @@ goto 1
 
 :cl
 cls
-echo VERSION 0.3.2:
-echo - U CAN NOW TYPE IN THE IP U WANT TO PING MANUALLY!!!!  
-echo - BUG FIXES 
+echo VERSION 0.3.3:
+echo - U CAN NOW RUN THIS IN FULLSCREEN MODE 
+echo - BUG FIX 
 echo.
 echo [ENTER]
 pause >NUL
@@ -419,3 +423,12 @@ echo [ENTER]
 pause >NUL
 cls
 goto 1
+
+:fullscreen
+cls
+mode con cols=1000 lines=1000
+echo THIS PROGRAMM RUNS IN FULLSCREEN NOW
+echo [ENTER]
+pause >NUL
+cls
+goto 1 
